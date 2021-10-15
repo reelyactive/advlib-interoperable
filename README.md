@@ -16,12 +16,12 @@ Hello advlib-interoperable!
 ```javascript
 const interpreter = require('advlib-interoperable');
 
-let processedPacket = {
+let packet = {
     deviceIds: [ "496f49445554462d3332/00000001f989" ]
 };
-let interpretedPacket = interpreter.interpret(processedPacket);
+interpreter.interpret(packet);
 
-console.log(interpretedPacket);
+console.log(packet);
 ```
 
 Which should yield the following console output:

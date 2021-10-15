@@ -35,14 +35,16 @@ describe('advlib-interoperable', function() {
 
   // Test the interpret function with Unicode as Eddystone
   it('should handle a Unicode code point as Eddystone', function() {
-    assert.deepEqual(interpreter.interpret(INPUT_DATA_UNICODE_EDDYSTONE),
-                     EXPECTED_DATA_UNICODE_EDDYSTONE);
+    let unicodeEddystone = Object.assign({}, INPUT_DATA_UNICODE_EDDYSTONE);
+    interpreter.interpret(unicodeEddystone);
+    assert.deepEqual(unicodeEddystone, EXPECTED_DATA_UNICODE_EDDYSTONE);
   });
 
   // Test the interpret function with Unicode as both Eddystone and iBeacon
   it('should handle Unicode code points as Eddystone and iBeacon', function() {
-    assert.deepEqual(interpreter.interpret(INPUT_DATA_UNICODE_BOTH),
-                     EXPECTED_DATA_UNICODE_BOTH);
+    let unicodeBoth = Object.assign({}, INPUT_DATA_UNICODE_BOTH);
+    interpreter.interpret(unicodeBoth);
+    assert.deepEqual(unicodeBoth, EXPECTED_DATA_UNICODE_BOTH);
   });
 
 });
