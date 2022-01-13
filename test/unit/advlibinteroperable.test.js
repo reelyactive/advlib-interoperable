@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2021
+ * Copyright reelyActive 2021-2022
  * We believe in an open Internet of Things
  */
 
@@ -16,6 +16,12 @@ const INPUT_DATA_UNICODE_BOTH = {
     deviceIds: [ "496f4944434f4445b73e5554462d3332/0001/f44b",
                  "496f49445554462d3332/00000001f30e" ]
 };
+const INPUT_DATA_BUTTON_EDDYSTONE = {
+    deviceIds: [ "496f4944427574746f6e/000000000000" ]
+};
+const INPUT_DATA_BUTTON_IBEACON = {
+    deviceIds: [ "496f4944434f4445b73e427574746f6e/0000/0000" ]
+};
 
 
 // Expected outputs for the scenario
@@ -27,6 +33,14 @@ const EXPECTED_DATA_UNICODE_BOTH = {
     deviceIds: [ "496f4944434f4445b73e5554462d3332/0001/f44b",
                  "496f49445554462d3332/00000001f30e" ],
     unicodeCodePoints: [ 128075, 127758 ]
+};
+const EXPECTED_DATA_BUTTON_EDDYSTONE = {
+    deviceIds: [ "496f4944427574746f6e/000000000000" ],
+    isButtonPressed: [ true ]
+};
+const EXPECTED_DATA_BUTTON_IBEACON = {
+    deviceIds: [ "496f4944434f4445b73e427574746f6e/0000/0000" ],
+    isButtonPressed: [ true ]
 };
 
 
@@ -45,6 +59,20 @@ describe('advlib-interoperable', function() {
     let unicodeBoth = Object.assign({}, INPUT_DATA_UNICODE_BOTH);
     interpreter.interpret(unicodeBoth);
     assert.deepEqual(unicodeBoth, EXPECTED_DATA_UNICODE_BOTH);
+  });
+
+  // Test the interpret function with button as Eddystone
+  it('should handle a button press as Eddystone', function() {
+    let buttonEddystone = Object.assign({}, INPUT_DATA_BUTTON_EDDYSTONE);
+    interpreter.interpret(buttonEddystone);
+    assert.deepEqual(buttonEddystone, EXPECTED_DATA_BUTTON_EDDYSTONE);
+  });
+
+  // Test the interpret function with button as iBeacon
+  it('should handle a button press as iBeacon', function() {
+    let buttonIBeacon = Object.assign({}, INPUT_DATA_BUTTON_IBEACON);
+    interpreter.interpret(buttonIBeacon);
+    assert.deepEqual(buttonIBeacon, EXPECTED_DATA_BUTTON_IBEACON);
   });
 
 });
