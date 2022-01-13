@@ -37,8 +37,8 @@ __advlib-interoperable__ supports the following Entity UUIDs which have [specifi
 
 | Entity UUID                            | Interpretation     |
 |:---------------------------------------|:-------------------|
-| 496f4944_-434f-4445-b73e-_5554462d3332 | Unicode Code Point |
-| 496f4944_-434f-4445-b73e-_427574746f6e | Button             |
+| 496f4944*-434f-4445-b73e-*5554462d3332 | Unicode Code Point |
+| 496f4944*-434f-4445-b73e-*427574746f6e | Button             |
 | 496f4944-434f-4445-b73e-425553616665   | BlueUp Safety      |
 
 Entity UUIDs with _italics_ additionally support an alternative 80-bit elided UUID representation, where the 48-bits in _italics_ are removed.
