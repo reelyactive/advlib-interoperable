@@ -22,6 +22,9 @@ const INPUT_DATA_BUTTON_EDDYSTONE = {
 const INPUT_DATA_BUTTON_IBEACON = {
     deviceIds: [ "496f4944434f4445b73e427574746f6e/0000/0000" ]
 };
+const INPUT_DATA_BLUEUP_SAFETY = {
+    deviceIds: [ "496f4944434f4445b73e425553616665/1234/8001" ]
+};
 
 
 // Expected outputs for the scenario
@@ -41,6 +44,11 @@ const EXPECTED_DATA_BUTTON_EDDYSTONE = {
 const EXPECTED_DATA_BUTTON_IBEACON = {
     deviceIds: [ "496f4944434f4445b73e427574746f6e/0000/0000" ],
     isButtonPressed: [ true ]
+};
+const EXPECTED_DATA_BLUEUP_SAFETY = {
+    deviceIds: [ "496f4944434f4445b73e425553616665/1234/8001" ],
+    batteryVoltage: 2.98,
+    isButtonPressed: [ true, false ]
 };
 
 
@@ -73,6 +81,13 @@ describe('advlib-interoperable', function() {
     let buttonIBeacon = Object.assign({}, INPUT_DATA_BUTTON_IBEACON);
     interpreter.interpret(buttonIBeacon);
     assert.deepEqual(buttonIBeacon, EXPECTED_DATA_BUTTON_IBEACON);
+  });
+
+  // Test the interpret function with BlueUp Safety iBeacon data
+  it('should handle a BlueUp Safety iBeacon packet', function() {
+    let safetyIBeacon = Object.assign({}, INPUT_DATA_BLUEUP_SAFETY);
+    interpreter.interpret(safetyIBeacon);
+    assert.deepEqual(safetyIBeacon, EXPECTED_DATA_BLUEUP_SAFETY);
   });
 
 });
