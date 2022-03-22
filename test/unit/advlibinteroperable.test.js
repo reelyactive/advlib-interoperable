@@ -25,6 +25,12 @@ const INPUT_DATA_BUTTON_IBEACON = {
 const INPUT_DATA_BLUEUP_SAFETY = {
     deviceIds: [ "496f4944434f4445b73e425553616665/1234/8001" ]
 };
+const INPUT_DATA_FILE_MP3_EDDYSTONE = {
+    deviceIds: [ "496f49442e2f2e6d7033/000000000123" ]
+};
+const INPUT_DATA_FILE_MP3_IBEACON = {
+    deviceIds: [ "496f4944434f4445b73e2e2f2e6d7033/0123/4567" ]
+};
 
 
 // Expected outputs for the scenario
@@ -49,6 +55,14 @@ const EXPECTED_DATA_BLUEUP_SAFETY = {
     deviceIds: [ "496f4944434f4445b73e425553616665/1234/8001" ],
     batteryVoltage: 2.98,
     isButtonPressed: [ true, false ]
+};
+const EXPECTED_DATA_FILE_MP3_EDDYSTONE = {
+    deviceIds: [ "496f49442e2f2e6d7033/000000000123" ],
+    uri: "file:/0000123.mp3"
+};
+const EXPECTED_DATA_FILE_MP3_IBEACON = {
+    deviceIds: [ "496f4944434f4445b73e2e2f2e6d7033/0123/4567" ],
+    uri: "file:/1234567.mp3"
 };
 
 
@@ -88,6 +102,20 @@ describe('advlib-interoperable', function() {
     let safetyIBeacon = Object.assign({}, INPUT_DATA_BLUEUP_SAFETY);
     interpreter.interpret(safetyIBeacon);
     assert.deepEqual(safetyIBeacon, EXPECTED_DATA_BLUEUP_SAFETY);
+  });
+
+  // Test the interpret function with file.mp3 as Eddystone
+  it('should handle a file.mp3 as Eddystone', function() {
+    let buttonEddystone = Object.assign({}, INPUT_DATA_FILE_MP3_EDDYSTONE);
+    interpreter.interpret(buttonEddystone);
+    assert.deepEqual(buttonEddystone, EXPECTED_DATA_FILE_MP3_EDDYSTONE);
+  });
+
+  // Test the interpret function with file.mp3 as iBeacon
+  it('should handle a file.mp3 as iBeacon', function() {
+    let buttonIBeacon = Object.assign({}, INPUT_DATA_FILE_MP3_IBEACON);
+    interpreter.interpret(buttonIBeacon);
+    assert.deepEqual(buttonIBeacon, EXPECTED_DATA_FILE_MP3_IBEACON);
   });
 
 });

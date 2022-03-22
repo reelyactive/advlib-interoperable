@@ -44,6 +44,18 @@ __advlib-interoperable__ supports the following Entity UUIDs which have [specifi
 The Entity UUIDs above can be represented in _elided_ UUID format by removing the 48-bit sequence _-434f-4445-b73e-_ as explained [here](https://reelyactive.github.io/interoperable-identifier/#part01).
 
 
+Supported Entity UUIDs (URI)
+----------------------------
+
+__advlib-interoperable__ supports the following Entity UUIDs which have [specific interpretations](https://reelyactive.github.io/interoperable-identifier/#part02) regarding conversion to a URI:
+
+| Entity UUID                          | URI Interpretation |
+|:-------------------------------------|:-------------------|
+| 496f4944-434f-4445-b73e-2e2f2e6d7033 | file:/xxxxxxx.mp3  |
+
+The Entity UUIDs above can be represented in _elided_ UUID format by removing the 48-bit sequence _-434f-4445-b73e-_ as explained [here](https://reelyactive.github.io/interoperable-identifier/#part01).
+
+
 License
 -------
 
