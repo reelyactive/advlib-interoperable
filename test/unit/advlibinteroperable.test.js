@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2021-2022
+ * Copyright reelyActive 2021-2023
  * We believe in an open Internet of Things
  */
 
@@ -15,6 +15,9 @@ const INPUT_DATA_UNICODE_EDDYSTONE = {
 const INPUT_DATA_UNICODE_BOTH = {
     deviceIds: [ "496f4944434f4445b73e5554462d3332/0001/f44b",
                  "496f49445554462d3332/00000001f30e" ]
+};
+const INPUT_DATA_DIRACT_EDDYSTONE = {
+    deviceIds: [ "496f4944446972416374/000000000000" ]
 };
 const INPUT_DATA_BUTTON_EDDYSTONE = {
     deviceIds: [ "496f4944427574746f6e/000000000000" ]
@@ -42,6 +45,10 @@ const EXPECTED_DATA_UNICODE_BOTH = {
     deviceIds: [ "496f4944434f4445b73e5554462d3332/0001/f44b",
                  "496f49445554462d3332/00000001f30e" ],
     unicodeCodePoints: [ 128075, 127758 ]
+};
+const EXPECTED_DATA_DIRACT_EDDYSTONE = {
+    deviceIds: [ "496f4944446972416374/000000000000" ],
+    uri: "https://sniffypedia.org/Organization/Code_Blue_Communications_Inc/DirAct/"
 };
 const EXPECTED_DATA_BUTTON_EDDYSTONE = {
     deviceIds: [ "496f4944427574746f6e/000000000000" ],
@@ -81,6 +88,13 @@ describe('advlib-interoperable', function() {
     let unicodeBoth = Object.assign({}, INPUT_DATA_UNICODE_BOTH);
     interpreter.interpret(unicodeBoth);
     assert.deepEqual(unicodeBoth, EXPECTED_DATA_UNICODE_BOTH);
+  });
+
+  // Test the interpret function with DirAct as Eddystone
+  it('should handle a DirAct identifier', function() {
+    let diractEddystone = Object.assign({}, INPUT_DATA_DIRACT_EDDYSTONE);
+    interpreter.interpret(diractEddystone);
+    assert.deepEqual(diractEddystone, EXPECTED_DATA_DIRACT_EDDYSTONE);
   });
 
   // Test the interpret function with button as Eddystone

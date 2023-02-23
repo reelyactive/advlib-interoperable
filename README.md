@@ -38,6 +38,7 @@ __advlib-interoperable__ supports the following Entity UUIDs which have [specifi
 | Entity UUID                          | Interpretation     |
 |:-------------------------------------|:-------------------|
 | 496f4944-434f-4445-b73e-5554462d3332 | Unicode Code Point |
+| 496f4944-434f-4445-b73e-446972416374 | DirAct             |
 | 496f4944-434f-4445-b73e-427574746f6e | Button             |
 | 496f4944-434f-4445-b73e-425553616665 | BlueUp Safety      |
 
