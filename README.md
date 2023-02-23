@@ -57,6 +57,20 @@ __advlib-interoperable__ supports the following Entity UUIDs which have [specifi
 The Entity UUIDs above can be represented in _elided_ UUID format by removing the 48-bit sequence _-434f-4445-b73e-_ as explained [here](https://reelyactive.github.io/interoperable-identifier/#part01).
 
 
+Contributing
+------------
+
+Discover [how to contribute](CONTRIBUTING.md) to this open source project which upholds a standard [code of conduct](CODE_OF_CONDUCT.md).
+
+
+Security
+--------
+
+Consult our [security policy](SECURITY.md) for best practices using this open source software and to report vulnerabilities.
+
+[![Known Vulnerabilities](https://snyk.io/test/github/reelyactive/advlib-interoperable/badge.svg)](https://snyk.io/test/github/reelyactive/advlib-interoperable)
+
+
 License
 -------
 
