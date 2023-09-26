@@ -25,6 +25,12 @@ const INPUT_DATA_BUTTON_EDDYSTONE = {
 const INPUT_DATA_BUTTON_IBEACON = {
     deviceIds: [ "496f4944434f4445b73e427574746f6e/0000/0000" ]
 };
+const INPUT_DATA_MOTION_EDDYSTONE = {
+    deviceIds: [ "496f49444d6f74696f63/000000000000" ]
+};
+const INPUT_DATA_MOTION_IBEACON = {
+    deviceIds: [ "496f4944434f4445b73e4d6f74696f63/0000/0000" ]
+};
 const INPUT_DATA_BLUEUP_SAFETY = {
     deviceIds: [ "496f4944434f4445b73e425553616665/1234/8001" ]
 };
@@ -57,6 +63,14 @@ const EXPECTED_DATA_BUTTON_EDDYSTONE = {
 const EXPECTED_DATA_BUTTON_IBEACON = {
     deviceIds: [ "496f4944434f4445b73e427574746f6e/0000/0000" ],
     isButtonPressed: [ true ]
+};
+const EXPECTED_DATA_MOTION_EDDYSTONE = {
+    deviceIds: [ "496f49444d6f74696f63/000000000000" ],
+    isMotionDetected: [ true ]
+};
+const EXPECTED_DATA_MOTION_IBEACON = {
+    deviceIds: [ "496f4944434f4445b73e4d6f74696f63/0000/0000" ],
+    isMotionDetected: [ true ]
 };
 const EXPECTED_DATA_BLUEUP_SAFETY = {
     deviceIds: [ "496f4944434f4445b73e425553616665/1234/8001" ],
@@ -109,6 +123,20 @@ describe('advlib-interoperable', function() {
     let buttonIBeacon = Object.assign({}, INPUT_DATA_BUTTON_IBEACON);
     interpreter.interpret(buttonIBeacon);
     assert.deepEqual(buttonIBeacon, EXPECTED_DATA_BUTTON_IBEACON);
+  });
+
+  // Test the interpret function with motion as Eddystone
+  it('should handle motion detection as Eddystone', function() {
+    let motionEddystone = Object.assign({}, INPUT_DATA_MOTION_EDDYSTONE);
+    interpreter.interpret(motionEddystone);
+    assert.deepEqual(motionEddystone, EXPECTED_DATA_MOTION_EDDYSTONE);
+  });
+
+  // Test the interpret function with motion as iBeacon
+  it('should handle motion detection as iBeacon', function() {
+    let motionIBeacon = Object.assign({}, INPUT_DATA_MOTION_IBEACON);
+    interpreter.interpret(motionIBeacon);
+    assert.deepEqual(motionIBeacon, EXPECTED_DATA_MOTION_IBEACON);
   });
 
   // Test the interpret function with BlueUp Safety iBeacon data

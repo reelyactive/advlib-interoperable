@@ -40,6 +40,7 @@ __advlib-interoperable__ supports the following Entity UUIDs which have [specifi
 | 496f4944-434f-4445-b73e-5554462d3332 | Unicode Code Point |
 | 496f4944-434f-4445-b73e-446972416374 | DirAct             |
 | 496f4944-434f-4445-b73e-427574746f6e | Button             |
+| 496f4944-434f-4445-b73e-4d6f74696f63 | Motion             |
 | 496f4944-434f-4445-b73e-425553616665 | BlueUp Safety      |
 
 The Entity UUIDs above can be represented in _elided_ UUID format by removing the 48-bit sequence _-434f-4445-b73e-_ as explained [here](https://reelyactive.github.io/interoperable-identifier/#part01).
